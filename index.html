@@ -1,0 +1,42 @@
+<!--
+SEGA Nerds app for Chrome-compatible systems
+2014 espectalll123
+
+Does this have any kind of license!?
+-->
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>SEGA Nerds</title>
+		<link rel="stylesheet" href="index.css" />
+		<script src="jquery.js"></script>
+		<script src="window.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<div id="titleBar">
+			<img id="titleLogo" src="img/titlebar_logo.png" />
+			<div id="tmBox"></div>
+			<div id="searchBar">
+				<div class="titleBtn" id="searchBtn"></div>
+				<input type="text" id="searchBox" />
+			</div>
+			<div id="dragBar"></div>
+			<div id="windowControls">
+				<div class="titleBtn" id="minBtn"></div>
+				<div class="titleBtn" id="closeBtn"></div>
+			</div>
+		</div>
+		<div id="titleMenu">
+				<div class="tmItem" id="tmLogo"></div>
+				<div class="tmItem tmClickable" id="tmFS"></div>
+				<div class="tmItem tmClickable" id="tmShare"></div>
+				<div class="tmItem tmClickable" id="tmWeb"></div>
+				<div class="tmItem tmClickable" id="tmSettings"></div>
+		</div>
+		<div id="content">
+		</div>
+	</body>
+</html>

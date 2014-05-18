@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "SEGA Nerds",
+  "version": "0.1",
+  "icons": {
+    "16": "icon_16.png",
+    "128": "icon_128.png"
+  },
+  "offline_enabled": false,
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "permissions": [
+  	"http://www.seganerds.com/",
+  	"app.window"
+  ]
+}
