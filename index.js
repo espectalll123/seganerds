@@ -28,18 +28,52 @@ function getIndex() {
     		if (data.readyState == 4) {
     			displayIndex(data.responseText.split("</script>\n")[1]);
     		} else {
-    			$("#content").html('<p class="error"><img src="img/ohno.png" /><br />Something went wrong!</p>');
+    			var content = document.createElement("div");
+    			content.id = "content";
+    			var error = document.createElement("p");
+    			error.className = "error";
+    			var ohno = document.createElement("img");
+    			ohno.src = "img/ohno.png";
+    			var br = document.createElement("br");
+    			var error_text = document.createTextNode(
+    				"Something went wrong!");
+    			error.appendChild(ohno);
+    			error.appendChild(br);
+    			error.appendChild(error_text);
+    			content.appendChild(error);
+    			document.body.appendChild(content);
     		};
     	}});
 };
 function displayIndex(content) {
-	index = jQuery.parseJSON(content)
+	index = jQuery.parseJSON(content);
 	var postList = "";
+	var content = document.createElement("div");
+	content.id = "content";
 	for (var i = 0; i < index.length; i++) {
-		postList += "<h1>" + index[i].the_title + "</h1>";
-		postList += "<h2>" + index[i].the_excerpt.
-			replace(" [&hellip", "")
-			+ "..." + "</h2>";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", index[i].the_post_thumbnail[0], true);
+		xhr.responseType = "blob";
+		xhr.onload = function(e) {
+  			var img = document.createElement("img");
+  			img.className = "post-image";
+  			img.src = window.URL.createObjectURL(this.response);
+  			content.appendChild(img);
+		};
+		xhr.send();
+		var h1 = document.createElement("h1");
+		var h1_text = document.createTextNode(
+			Encoder.htmlDecode(index[i].the_title));
+		h1.appendChild(h1_text);
+		content.appendChild(h1);
+		var p = document.createElement("p");
+		p.className = "description";
+		var p_text = document.createTextNode(
+			Encoder.htmlDecode(
+			index[i].the_excerpt.replace(
+			" [&hellip", "") + "..."));
+		p.appendChild(p_text);
+		content.appendChild(p);
 	};
-	$("#content").html(postList);
+	document.body.appendChild(content);
 };

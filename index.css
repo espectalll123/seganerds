@@ -21,17 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	src: url("muli/muli_regular.ttf") format('truetype');
 }
 
-html {
-	position: relative;
-	z-index: 0;
-}
-
 body {
 	font-family: Muli, Helvetica;
     -webkit-font-smoothing: antialised;
 	background-image: url("img/bg.jpg");
 	background-position: center;
-	background-attachment: fixed;
 }
 
 #titleBar {
@@ -173,9 +167,19 @@ body {
 
 #content {
 	margin: 72px auto;
-	overflow-y: scroll;
-	width: 700px;
+	padding: 0 4px 0 4px;
+	width: 696px;
 	background-color: white;
+}
+.post-image {
+	align: left
+	width: 290px; height: 166px;
+}
+.post-text {
+	align: right;
+}
+p.description {
+	font-size: 16px;
 }
 p.error {
 	text-align: center;

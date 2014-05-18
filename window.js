@@ -27,7 +27,7 @@ $(document).ready(function() {
 		if (winWidth > 1024) {
 			$("#content").css({"width": winWidth-320});
 		} else {
-			$("#content").css({"width": 700});
+			$("#content").css({"width": 696});
 		};
 		if (searchIs) {
 			$("#dragBar").css({"width": winWidth-680});
