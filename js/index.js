@@ -18,15 +18,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 function getIndex() {
 	$.ajax({
-		url: "http://www.seganerds.com/?jsonposts=1",
+		url: "http://www.seganerds.com/?json=1",
 		/* The readyState bug must be fixed in the future.
-		Meanwhile, let's enjoy some awkwardness!!! :D
-		
-		success: function(data) {
-    	}, */
-    	error: function(data) {
+		Meanwhile, let's enjoy some awkwardness!!! :D*/
+	}).done(function(data) {
+		console.log('wat');
+		var content = document.createElement("div");
+    		content.id = "content";
+		document.body.appendChild(content);
+		$("#content").append(data);
+		console.log(data);
+    	});
+    	/* error: function(data) {
     		if (data.readyState == 4) {
-    			displayIndex(data.responseText.split("</script>\n")[1]);
+    			// displayIndex(data.responseText.split("</script>\n")[1]);
     		} else {
     			var content = document.createElement("div");
     			content.id = "content";
@@ -43,7 +48,7 @@ function getIndex() {
     			content.appendChild(error);
     			document.body.appendChild(content);
     		};
-    	}});
+    	}});*/
 };
 function displayIndex(content) {
 	index = jQuery.parseJSON(content);
@@ -77,3 +82,5 @@ function displayIndex(content) {
 	};
 	document.body.appendChild(content);
 };
+
+getIndex()
