@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
   "name": "SEGA Nerds",
-  "version": "0.1",
+  "version": "0.2",
   "icons": {
-    "16": "icon_16.png",
-    "128": "icon_128.png"
+    "16": "img/icon_16.png",
+    "128": "img/icon_128.png"
   },
   "offline_enabled": false,
   "app": {
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["js/background.js"]
     }
   },
   "permissions": [
