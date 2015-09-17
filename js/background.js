@@ -22,8 +22,8 @@ chrome.app.runtime.onLaunched.addListener(function() {
       width: 1024,
       height: 768,
     },
-    minWidth: 730,
-    minHeight: 600,
+    minWidth: 768,
+    minHeight: 500,
     frame: 'none'
   });
 });
